@@ -30,6 +30,7 @@ env:
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
+  UPLOAD_PACKAGE: true
   UPLOAD_FIRMWARE: true
   UPLOAD_COWTRANSFER: false
   UPLOAD_WETRANSFER: true
@@ -133,7 +134,15 @@ jobs:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
         path: openwrt/bin
 
-    - name: Organize files
+    - name: Organize package files
+      id: organizepackage
+      if: env.UPLOAD_PACKAGE == 'true' && !cancelled()
+      run: |
+        tar -zcvf AllPackages.tar.gz openwrt/bin/packages
+        mv AllPackages.tar.gz openwrt/bin/targets/*/*
+        echo "::set-output name=status::success"
+
+    - name: Organize firmware files
       id: organize
       if: env.UPLOAD_FIRMWARE == 'true' && !cancelled()
       run: |
