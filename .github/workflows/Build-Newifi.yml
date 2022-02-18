@@ -14,11 +14,26 @@ on:
   repository_dispatch:
   workflow_dispatch:
     inputs:
+      ccache:
+        description: 'Use ccache'
+        required: true
+        default: 'true'
+      toolchain:
+        description: 'Use toolchain'
+        required: true
+        default: 'true'
+      skip:
+        description: 'Option skip'
+        required: true
+        default: 'true'
+      clean:
+        description: 'Clean cache'
+        required: true
+        default: 'false'
       ssh:
         description: 'SSH connection to Actions'
         required: false
         default: 'false'
-
 #  schedule:
 #    - cron: 0 8 * * 5
 
@@ -72,8 +87,11 @@ jobs:
     - name: Cache
       uses: klever1988/cachewrtbuild@main
       with:
-        ccache: 'true'
+        ccache: ${{ github.event.inputs.ccache }}
         prefix: ${{ github.workspace }}/openwrt
+        toolchain: ${{ github.event.inputs.toolchain }}
+        skip: ${{ github.event.inputs.skip }}
+        clean: ${{ github.event.inputs.clean }}
 
     - name: Load custom feeds
       run: |
