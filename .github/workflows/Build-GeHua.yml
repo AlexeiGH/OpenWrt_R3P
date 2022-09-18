@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt_GeHua
+name: Build OpenWrt_GeHua_Toolchain
 
 on:
   repository_dispatch:
