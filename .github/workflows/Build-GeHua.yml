@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt_Newifi
+name: Build OpenWrt_GeHua
 
 on:
   repository_dispatch:
@@ -41,7 +41,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: Newifi.config
+  CONFIG_FILE: GeHua.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -52,8 +52,8 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   TAG_BRANCH: main
-  TAG_NAME: Newifi_D2
-  RELEASE_NAME: OpenWrt_Newifi_D2
+  TAG_NAME: GeHua
+  RELEASE_NAME: OpenWrt_GeHua
   RELEASE_NOTE: release.txt
 
 jobs:
