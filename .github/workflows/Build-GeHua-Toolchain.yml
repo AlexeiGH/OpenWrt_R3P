@@ -8,7 +8,7 @@
 # Description: Build OpenWrt using GitHub Actions
 #
 
-name: Build OpenWrt_GeHua_Toolchain
+name: Build OpenWrt_R3P_Toolchain
 
 on:
   repository_dispatch:
@@ -41,7 +41,7 @@ env:
   REPO_URL: https://github.com/coolsnowwolf/lede
   REPO_BRANCH: master
   FEEDS_CONF: feeds.conf.default
-  CONFIG_FILE: GeHua.config
+  CONFIG_FILE: R3P.config
   DIY_P1_SH: diy-part1.sh
   DIY_P2_SH: diy-part2.sh
   UPLOAD_BIN_DIR: true
@@ -52,13 +52,13 @@ env:
   UPLOAD_RELEASE: true
   TZ: Asia/Shanghai
   TAG_BRANCH: main
-  TAG_NAME: GeHua
-  RELEASE_NAME: OpenWrt_GeHua
+  TAG_NAME: R3P
+  RELEASE_NAME: OpenWrt_R3P
   RELEASE_NOTE: release.txt
 
 jobs:
   build:
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 
     steps:
     - name: Checkout
