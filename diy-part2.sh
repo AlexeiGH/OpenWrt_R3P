@@ -11,10 +11,10 @@
 #
 
 # Modify default IP
-#sed -i 's/192.168.1.1/192.168.11.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/192.168.33.1/g' package/base-files/files/bin/config_generate
 
 # Modify hostname
-#sed -i 's/OpenWrt/Newifi-D2(Device_name)/g' package/base-files/files/bin/config_generate
+sed -i 's/OpenWrt/R3P/g' package/base-files/files/bin/config_generate
 
 # Modify the version number
 # sed -i "s/OpenWrt /Ausaci build $(TZ=UTC-8 date "+%Y.%m.%d") @ OpenWrt /g" package/lean/default-settings/files/zzz-default-settings
